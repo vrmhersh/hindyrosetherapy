@@ -51,7 +51,7 @@ export const values = [
 export const story = [
   "My journey into therapy began with a simple belief: that healing happens not through fixing, but through being truly seen and heard. That belief still shapes every session I offer.",
   "Over the years I've trained across a range of evidence-based and alternative approaches — qualifying as a member of the BACP and building a practice around Person Centred Therapy, CBT and EFT.",
-  "Discovering EFT was a turning point. I watched clients who had felt \"stuck\" for years find relief in just a few sessions, as we addressed emotions in the body as well as the mind. It showed me that lasting change becomes possible when we work with the whole person.",
+  "Discovering EFT was a turning point. I watched clients who had felt \"stuck\" find relief in just a few sessions, as we addressed emotions in the body as well as the mind. It showed me that lasting change becomes possible when we work with the whole person.",
   "Alongside my training, I've built extensive experience in grief counselling — walking alongside people through loss and bereavement — and spent hundreds of hours on a volunteer basis on the Manchester helpline for mental health crises, offering immediate, compassionate support when it's needed most.",
   "Today, from my practice in Manchester and online via Zoom, I offer a warm, flexible and personalised approach — helping you feel more like yourself again.",
 ];
