@@ -71,7 +71,7 @@ function Home() {
   return (<>
     <section className="hero" style={{ backgroundImage: `url(${img.hero})` }}><div className="hero-fade" />
       <div className="wrap hero-in">
-        <p className="eyebrow light">Hindy Rose · Therapist</p>
+        <p className="eyebrow light">Hindy Rose · Therapist · MBACP</p>
         <h1 className="serif">Therapy That Supports <span className="script">Real Change</span></h1>
         <p className="hero-sub">A warm, flexible and personalised approach to help you feel more like yourself again.</p>
         <div className="btn-row"><Btn to="/contact">Start a Conversation</Btn><Btn to="/services" variant="ghost">Explore Services</Btn></div>
