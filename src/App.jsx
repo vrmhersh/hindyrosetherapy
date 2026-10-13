@@ -171,12 +171,12 @@ function Contact() {
         <p className="lead">Whether you're ready to book your first session or simply have a question, I'm here to listen. There's no pressure — just a warm invitation to connect.</p>
         <form onSubmit={submit}>
           <input type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" style={{ display: "none" }} />
-          <label>Full Name *<input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
-          <label>Email *<input required type="email" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
+          <label>Full Name <b>*</b><input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
+          <label>Email <b>*</b><input required type="email" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
           <label>Phone<input type="tel" placeholder="07700 900000" value={f.phone} onChange={set("phone")} /></label>
           <label>How did you hear about us? <span className="opt">(optional)</span><select value={f.heard} onChange={set("heard")}><option value="">Select an option</option>
             <option>Print advertiser</option><option>Word of mouth</option><option>Google search</option><option>Other</option></select></label>
-          <label>Your Message *</b><textarea required rows="5" placeholder="Tell me a little about what you're looking for, or simply say hello..." value={f.message} onChange={set("message")} /></label>
+          <label>Your Message <b>*</b></b><textarea required rows="5" placeholder="Tell me a little about what you're looking for, or simply say hello..." value={f.message} onChange={set("message")} /></label>
           <button className="btn btn-solid" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send Message"} <Icons.ArrowRight size={18} /></button>
           {status === "sent" && <p className="msg ok" role="status">Thank you — your message has been sent. I'll reply within 48 hours.</p>}
           {status === "error" && <p className="msg bad" role="alert">Sorry, that didn't send. Please try again, or email {contact.email} directly.</p>}
