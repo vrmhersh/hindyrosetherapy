@@ -96,7 +96,7 @@ function Home() {
         <p>Taking the first step toward therapy can feel overwhelming. You might be wondering if your concerns are "serious enough," or whether talking about your feelings will really make a difference. These are completely natural thoughts — and you're not alone in having them.</p>
         <p>What I want you to know is that there is no wrong reason to seek support. Whether you're navigating a major life change, working through past trauma, or simply feeling stuck, therapy provides a space where you can breathe, reflect, and begin to move forward.</p></Reveal>
       <div className="three">
-        <Reveal><h3 className="serif">How the Process Works</h3><p>We start with a no-pressure initial conversation — a chance for us to understand your goals and see if we're the right fit. From there, we build a personalized plan that evolves with you.</p></Reveal>
+        <Reveal><h3 className="serif">How the Process Works</h3><p>We start with a no-pressure initial conversation — a chance for me to understand your goals and see if we're the right fit. From there, we build a personalized plan that evolves with you.</p></Reveal>
         <Reveal delay={100}><h3 className="serif">What to Expect</h3><p>Each session is a collaborative space. There's no script, no judgment, and absolutely no pressure to share more than you're ready to. I meet you exactly where you are.</p></Reveal>
         <Reveal delay={200}><h3 className="serif">Proven & Alternative Methods</h3><p>My approach blends evidence-based therapies like Person Centred Therapy and CBT with the integrative power of EFT — giving you both understanding and lasting release.</p></Reveal>
       </div></div></section>
