@@ -171,8 +171,8 @@ function Contact() {
         <p className="lead">Whether you're ready to book your first session or simply have a question, I'm here to listen. There's no pressure — just a warm invitation to connect.</p>
         <form onSubmit={submit}>
           <input type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" style={{ display: "none" }} />
-          <label>Full Name *</b><input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
-          <label>Email *</b><input required type="email" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
+          <label>Full Name *<input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
+          <label>Email *<input required type="email" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
           <label>Phone<input type="tel" placeholder="07700 900000" value={f.phone} onChange={set("phone")} /></label>
           <label>How did you hear about us? <span className="opt">(optional)</span><select value={f.heard} onChange={set("heard")}><option value="">Select an option</option>
             <option>Print advertiser</option><option>Word of mouth</option><option>Google search</option><option>Other</option></select></label>
