@@ -3,6 +3,13 @@ const B = "https://media.base44.com/images/public/6a25613186b01e1a2bbb56da/";
 // Set to true once you have put optimised photos in /public/img (see README: "npm run images").
 const USE_LOCAL_IMAGES = false;
 const L = (name, remote) => (USE_LOCAL_IMAGES ? `/img/${name}.webp` : remote);
+// BACP BADGE PLACEHOLDER
+// 1. Download your official badge from your BACP member account.
+// 2. Put the file in the "public/img" folder (e.g. public/img/bacp-badge.png).
+// 3. Put its path between the quotes below, e.g. "/img/bacp-badge.png".
+// While this is empty, no badge is shown anywhere on the site.
+const BACP_BADGE_PATH = "";
+export const bacpBadge = BACP_BADGE_PATH || null;
 export const img = {
   hero: L("hero", B + "d43acb7ea_generated_2bbde0f8.png"),
   aboutHero: L("about-hero", B + "bf110d622_generated_24e224b6.png"),

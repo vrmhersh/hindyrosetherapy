@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Routes, Route, useLocation } from "react-router-dom";
 import { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin } from "lucide-react";
 const Icons = { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin };
-import { img, contact, brand, principles, services, badges, approach, creds, values, story } from "./content.js";
+import { img, contact, brand, bacpBadge, principles, services, badges, approach, creds, values, story } from "./content.js";
 
 const Icon = ({ name, size = 22 }) => { const I = Icons[name]; return I ? <I size={size} strokeWidth={1.5} /> : null; };
 
@@ -16,6 +16,10 @@ function Reveal({ children, className = "", delay = 0 }) {
   }, []);
   return <div ref={ref} className={`reveal ${shown ? "in" : ""} ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
+
+const BacpBadge = () => bacpBadge ? (
+  <div className="bacp"><img src={bacpBadge} alt="BACP registered member badge, on the Professional Standards Authority Accredited Register" loading="lazy" /></div>
+) : null;
 
 const Btn = ({ to, children, variant = "solid", ...p }) => (
   <Link to={to} className={`btn btn-${variant}`} {...p}>{children} {variant !== "ghost" && <Icons.ArrowRight size={18} />}</Link>
@@ -49,7 +53,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="footer"><div className="wrap foot-grid">
-      <div><h3 className="serif">{brand.name}</h3><p>Therapy that supports real change. Person Centred Therapy, CBT and EFT — in person in Manchester and online via Zoom.</p></div>
+      <div><h3 className="serif">{brand.name}</h3><p>Therapy that supports real change. Person Centred Therapy, CBT and EFT — in person in Manchester and online via Zoom.</p><BacpBadge /></div>
       <div><h4>Navigate</h4>{[["/", "Home"], ["/services", "Services"], ["/about", "About Me"], ["/contact", "Contact"]].map(([to, t]) => <Link key={to} to={to}>{t}</Link>)}</div>
       <div><h4>Get in Touch</h4><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`tel:${contact.tel}`}>{contact.phone}</a><a className="li" href={contact.linkedin} target="_blank" rel="noopener noreferrer"><Icons.Linkedin size={18} /> LinkedIn</a></div>
       <div className="legal"><span>© {new Date().getFullYear()} {brand.name} Therapy. All rights reserved.</span><Link to="/privacy">Privacy Notice</Link></div>
@@ -134,7 +138,8 @@ function About() {
     <section className="section alt"><div className="wrap">
       <Reveal><h2 className="serif">Credentials & Experience</h2><p className="lead">Professional qualifications you can trust.</p></Reveal>
       <div className="cred-grid">{creds.map(([i, t, d], k) => (
-        <Reveal key={t} delay={(k % 3) * 80} className="cred"><span className="gold"><Icon name={i} size={28} /></span><div><h3 className="serif">{t}</h3><p>{d}</p></div></Reveal>))}</div></div></section>
+        <Reveal key={t} delay={(k % 3) * 80} className="cred"><span className="gold"><Icon name={i} size={28} /></span><div><h3 className="serif">{t}</h3><p>{d}</p></div></Reveal>))}</div>
+      {bacpBadge && <Reveal className="bacp-row"><BacpBadge /></Reveal>}</div></section>
     <section className="section dark"><div className="wrap"><Reveal><h2 className="serif">Values That Guide My Work</h2></Reveal>
       <div className="three">{values.map(([t, d], k) => <Reveal key={t} delay={k * 100}><h3 className="serif">{t}</h3><p>{d}</p></Reveal>)}</div></div></section>
     <CTA title="Let's begin your journey together" text="I'd love to hear from you. Reach out for a free, no-obligation conversation about how I can support you." label="Get in Touch" />

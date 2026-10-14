@@ -140,3 +140,6 @@ input::placeholder,textarea::placeholder{color:#6b625b;opacity:1}
 .legal-page h1{margin-bottom:.4rem}.legal-page h2{font-size:1.7rem;margin:2.6rem 0 .8rem}
 .legal-page p,.legal-page li{color:var(--muted)}.legal-page ul{padding-left:1.3rem;display:grid;gap:.45rem;margin-top:.8rem}
 .legal-page .updated{font-size:.92rem;color:#6b625b}
+.bacp{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:.9rem 1.2rem;margin-top:1.4rem;box-shadow:0 2px 14px rgba(60,40,20,.06)}
+.bacp img{height:84px;width:auto;display:block}
+.bacp-row{display:flex;justify-content:center;margin-top:2.5rem}.bacp-row .bacp{margin-top:0}
