@@ -1,21 +1,41 @@
 // Images are hot-linked from Base44. Download them into /public/img and swap these paths.
 const B = "https://media.base44.com/images/public/6a25613186b01e1a2bbb56da/";
+// Set to true once you have put optimised photos in /public/img (see README: "npm run images").
+const USE_LOCAL_IMAGES = false;
+const L = (name, remote) => (USE_LOCAL_IMAGES ? `/img/${name}.webp` : remote);
 export const img = {
-  hero: B + "d43acb7ea_generated_2bbde0f8.png",
-  aboutHero: B + "bf110d622_generated_24e224b6.png",
-  office: B + "5509dbd0c_generated_b59ea392.png",
-  pct: B + "9c9ca522e_generated_a813b47e.png",
-  cbt: B + "1c2c28b22_generated_930b55cd.png",
-  eft: B + "3de875f1c_generated_62d47f4c.png",
+  hero: L("hero", B + "d43acb7ea_generated_2bbde0f8.png"),
+  aboutHero: L("about-hero", B + "bf110d622_generated_24e224b6.png"),
+  office: L("office", B + "5509dbd0c_generated_b59ea392.png"),
+  pct: L("pct", B + "9c9ca522e_generated_a813b47e.png"),
+  cbt: L("cbt", B + "1c2c28b22_generated_930b55cd.png"),
+  eft: L("eft", B + "3de875f1c_generated_62d47f4c.png"),
 };
-export const contact = { email: "hindyrosetherapy@gmail.com", phone: "07930 259523", tel: "+447930259523",
-  // TODO: replace with your real LinkedIn profile URL
-  linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-PROFILE" };
+// Which version of the site to build. Set VITE_BRAND=helen in Vercel for the Helen Rose site; anything else builds Hindy Rose.
+const brands = {
+  hindy: {
+    name: "Hindy Rose", first: "Hindy",
+    email: "hindyrosetherapy@gmail.com",
+    // TODO: replace with the real LinkedIn profile URL
+    linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-PROFILE",
+    accessKey: "106e8db6-e05e-4ad0-8bb2-cf40040beb51",
+  },
+  helen: {
+    name: "Helen Rose", first: "Helen",
+    // TODO: confirm this email address exists
+    email: "helenrosetherapy@gmail.com",
+    // TODO: replace with the real LinkedIn profile URL
+    linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-PROFILE",
+    accessKey: "106e8db6-e05e-4ad0-8bb2-cf40040beb51",
+  },
+};
+export const brand = brands[import.meta.env.VITE_BRAND] || brands.hindy;
+export const contact = { email: brand.email, phone: "07930 259523", tel: "+447930259523", linkedin: brand.linkedin };
 export const principles = [
-  ["Tailored to You", "No two journeys are the same. Every session is shaped around your unique experiences, needs and pace of growth.", B + "bab81f701_generated_37fe492d.png"],
-  ["Confidential", "A warm, judgment-free space where your privacy is always protected and your story is always safe.", B + "23da8ffa1_generated_7024e088.png"],
-  ["Compassionate", "Genuine, human care that meets you exactly where you are — never pushing, always alongside you.", B + "0df36556d_generated_12a24f6e.png"],
-  ["Scientifically Proven & Alternative", "Evidence-based methods like CBT blended with integrative techniques like EFT — supporting anxiety, depression, self-esteem, grief, stress and more.", B + "79fa40dcb_generated_11e41aa4.png"],
+  ["Tailored to You", "No two journeys are the same. Every session is shaped around your unique experiences, needs and pace of growth.", L("dew", B + "bab81f701_generated_37fe492d.png")],
+  ["Confidential", "A warm, judgment-free space where your privacy is always protected and your story is always safe.", L("stone", B + "23da8ffa1_generated_7024e088.png")],
+  ["Compassionate", "Genuine, human care that meets you exactly where you are — never pushing, always alongside you.", L("linen", B + "0df36556d_generated_12a24f6e.png")],
+  ["Scientifically Proven & Alternative", "Evidence-based methods like CBT blended with integrative techniques like EFT — supporting anxiety, depression, self-esteem, grief, stress and more.", L("fern", B + "79fa40dcb_generated_11e41aa4.png")],
 ];
 export const services = [
   { icon: "Brain", tag: "MBACP", title: "Cognitive Behavioural Therapy", full: "Cognitive Behavioural Therapy (CBT)", img: img.cbt,
