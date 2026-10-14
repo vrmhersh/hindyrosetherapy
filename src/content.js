@@ -8,7 +8,7 @@ const L = (name, remote) => (USE_LOCAL_IMAGES ? `/img/${name}.webp` : remote);
 // 2. Put the file in the "public/img" folder (e.g. public/img/bacp-badge.png).
 // 3. Put its path between the quotes below, e.g. "/img/bacp-badge.png".
 // While this is empty, no badge is shown anywhere on the site.
-const BACP_BADGE_PATH = "";
+const BACP_BADGE_PATH = "/img/bacp-badge.png";
 export const bacpBadge = BACP_BADGE_PATH || null;
 export const img = {
   hero: L("hero", B + "d43acb7ea_generated_2bbde0f8.png"),
