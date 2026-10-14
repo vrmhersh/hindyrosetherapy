@@ -180,7 +180,7 @@ function Contact() {
             <option>Print advertiser</option><option>Word of mouth</option><option>Google search</option><option>Other</option></select></label>
           <label><span className="lbl">Your Message <b>*</b></span><textarea required rows="5" placeholder="Tell me a little about what you're looking for, or simply say hello..." value={f.message} onChange={set("message")} /></label>
           <button className="btn btn-solid" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send Message"} <Icons.ArrowRight size={18} /></button>
-          {status === "sent" && <p className="msg ok" role="status">Thank you — your message has been sent. I'll reply within 24 hours.</p>}
+          {status === "sent" && <p className="msg ok" role="status">Thank you — your message has been sent. I'll reply within 48 hours.</p>}
           {status === "bademail" && <p className="msg bad" role="alert">Please enter a valid email address, for example name@example.com.</p>}
           {status === "error" && <p className="msg bad" role="alert">Sorry, that didn't send. Please try again, or email {contact.email} directly.</p>}
           <p className="note">All inquiries are completely confidential.</p>
@@ -192,7 +192,7 @@ function Contact() {
             <div className="info" key={l}><span className="gold"><Icon name={i} /></span><div><small>{l.toUpperCase()}</small>{v.map((x) => <p key={x}>{x}</p>)}</div></div>))}
           <div className="info"><span className="gold"><Icons.Linkedin size={22} strokeWidth={1.5} /></span><div><small>LINKEDIN</small><p><a className="link-inline" href={contact.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p></div></div></div>
         <div className="panel outline"><h3 className="serif">What Happens Next?</h3>
-          <ol><li><b>1.</b> I'll respond to your message within 24 hours.</li><li><b>2.</b> We'll schedule a brief, free phone consultation.</li><li><b>3.</b> Together, we'll determine the best path forward for you.</li></ol></div>
+          <ol><li><b>1.</b> I'll respond to your message within 48 hours.</li><li><b>2.</b> We'll schedule a brief, free phone consultation.</li><li><b>3.</b> Together, we'll determine the best path forward for you.</li></ol></div>
       </Reveal>
     </div></section>
   );
