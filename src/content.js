@@ -8,7 +8,9 @@ export const img = {
   cbt: B + "1c2c28b22_generated_930b55cd.png",
   eft: B + "3de875f1c_generated_62d47f4c.png",
 };
-export const contact = { email: "hindyrosetherapy@gmail.com", phone: "07930 259523", tel: "+447930259523" };
+export const contact = { email: "hindyrosetherapy@gmail.com", phone: "07930 259523", tel: "+447930259523",
+  // TODO: replace with your real LinkedIn profile URL
+  linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-PROFILE" };
 export const principles = [
   ["Tailored to You", "No two journeys are the same. Every session is shaped around your unique experiences, needs and pace of growth.", B + "bab81f701_generated_37fe492d.png"],
   ["Confidential", "A warm, judgment-free space where your privacy is always protected and your story is always safe.", B + "23da8ffa1_generated_7024e088.png"],
@@ -51,7 +53,7 @@ export const values = [
 export const story = [
   "My journey into therapy began with a simple belief: that healing happens not through fixing, but through being truly seen and heard. That belief still shapes every session I offer.",
   "Over the years I've trained across a range of evidence-based and alternative approaches — qualifying as a member of the BACP and building a practice around Person Centred Therapy, CBT and EFT.",
-  "Discovering EFT was a turning point. I watched clients who had felt \"stuck\" find relief in just a few sessions, as we addressed emotions in the body as well as the mind. It showed me that lasting change becomes possible when we work with the whole person.",
+  "Discovering EFT was a turning point. I watched clients who had felt \"stuck\" for years find relief in just a few sessions, as we addressed emotions in the body as well as the mind. It showed me that lasting change becomes possible when we work with the whole person.",
   "Alongside my training, I've built extensive experience in grief counselling — walking alongside people through loss and bereavement — and spent hundreds of hours on a volunteer basis on the Manchester helpline for mental health crises, offering immediate, compassionate support when it's needed most.",
   "Today, from my practice in Manchester and online via Zoom, I offer a warm, flexible and personalised approach — helping you feel more like yourself again.",
 ];

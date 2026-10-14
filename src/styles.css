@@ -125,3 +125,8 @@ ol{list-style:none;padding:0;margin-top:1.4rem;display:grid;gap:1rem;color:var(-
 .msg{padding:1rem 1.2rem;border-radius:14px;font-size:.97rem;margin:0!important}
 .msg.ok{background:#eef3e8;color:#3e5a2b}
 .msg.bad{background:#f8ebe7;color:#8a3a26}
+.lbl{display:block}
+.footer a.li{display:inline-flex;align-items:center;gap:.5rem}
+.btn-outline{border-color:var(--gold);color:var(--gold);margin-top:2rem}
+.btn-outline:hover{background:var(--gold);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(147,120,80,.3)}
+.link-inline{color:var(--gold);font-weight:500}.link-inline:hover{text-decoration:underline}

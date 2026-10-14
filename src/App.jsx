@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Routes, Route, useLocation } from "react-router-dom";
-import * as Icons from "lucide-react";
+import { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin } from "lucide-react";
+const Icons = { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin };
 import { img, contact, principles, services, badges, approach, creds, values, story } from "./content.js";
 
 const Icon = ({ name, size = 22 }) => { const I = Icons[name]; return I ? <I size={size} strokeWidth={1.5} /> : null; };
@@ -50,7 +51,7 @@ function Footer() {
     <footer className="footer"><div className="wrap foot-grid">
       <div><h3 className="serif">Hindy Rose</h3><p>Therapy that supports real change. Person Centred Therapy, CBT and EFT — in person in Manchester and online via Zoom.</p></div>
       <div><h4>Navigate</h4>{[["/", "Home"], ["/services", "Services"], ["/about", "About Me"], ["/contact", "Contact"]].map(([to, t]) => <Link key={to} to={to}>{t}</Link>)}</div>
-      <div><h4>Get in Touch</h4><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`tel:${contact.tel}`}>{contact.phone}</a></div>
+      <div><h4>Get in Touch</h4><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`tel:${contact.tel}`}>{contact.phone}</a><a className="li" href={contact.linkedin} target="_blank" rel="noopener noreferrer"><Icons.Linkedin size={18} /> LinkedIn</a></div>
       <div className="legal"><span>© {new Date().getFullYear()} Hindy Rose Therapy. All rights reserved.</span></div>
     </div></footer>
   );
@@ -71,7 +72,7 @@ function Home() {
   return (<>
     <section className="hero" style={{ backgroundImage: `url(${img.hero})` }}><div className="hero-fade" />
       <div className="wrap hero-in">
-        <p className="eyebrow light">Hindy Rose · Therapist · MBACP</p>
+        <p className="eyebrow light">Hindy Rose · Therapist</p>
         <h1 className="serif">Therapy That Supports <span className="script">Real Change</span></h1>
         <p className="hero-sub">A warm, flexible and personalised approach to help you feel more like yourself again.</p>
         <div className="btn-row"><Btn to="/contact">Start a Conversation</Btn><Btn to="/services" variant="ghost">Explore Services</Btn></div>
@@ -96,7 +97,7 @@ function Home() {
         <p>Taking the first step toward therapy can feel overwhelming. You might be wondering if your concerns are "serious enough," or whether talking about your feelings will really make a difference. These are completely natural thoughts — and you're not alone in having them.</p>
         <p>What I want you to know is that there is no wrong reason to seek support. Whether you're navigating a major life change, working through past trauma, or simply feeling stuck, therapy provides a space where you can breathe, reflect, and begin to move forward.</p></Reveal>
       <div className="three">
-        <Reveal><h3 className="serif">How the Process Works</h3><p>We start with a no-pressure initial conversation — a chance for me to understand your goals and see if we're the right fit. From there, we build a personalized plan that evolves with you.</p></Reveal>
+        <Reveal><h3 className="serif">How the Process Works</h3><p>We start with a no-pressure initial conversation — a chance for us to understand your goals and see if we're the right fit. From there, we build a personalized plan that evolves with you.</p></Reveal>
         <Reveal delay={100}><h3 className="serif">What to Expect</h3><p>Each session is a collaborative space. There's no script, no judgment, and absolutely no pressure to share more than you're ready to. I meet you exactly where you are.</p></Reveal>
         <Reveal delay={200}><h3 className="serif">Proven & Alternative Methods</h3><p>My approach blends evidence-based therapies like Person Centred Therapy and CBT with the integrative power of EFT — giving you both understanding and lasting release.</p></Reveal>
       </div></div></section>
@@ -129,7 +130,7 @@ function About() {
     <Badges />
     <section className="section"><div className="wrap split">
       <Reveal><img className="big" src={img.office} alt="A warm and inviting therapy office" loading="lazy" /></Reveal>
-      <Reveal delay={100} className="read"><h2 className="serif">My Story</h2>{story.map((p) => <p key={p}>{p}</p>)}</Reveal></div></section>
+      <Reveal delay={100} className="read"><h2 className="serif">My Story</h2>{story.map((p) => <p key={p}>{p}</p>)}<a className="btn btn-outline" href={contact.linkedin} target="_blank" rel="noopener noreferrer"><Icons.Linkedin size={18} /> Connect on LinkedIn</a></Reveal></div></section>
     <section className="section alt"><div className="wrap">
       <Reveal><h2 className="serif">Credentials & Experience</h2><p className="lead">Professional qualifications you can trust.</p></Reveal>
       <div className="cred-grid">{creds.map(([i, t, d], k) => (
@@ -147,6 +148,7 @@ function Contact() {
   const submit = async (e) => {
     e.preventDefault();
     if (e.target.botcheck.checked) return; // spam trap
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) { setStatus("bademail"); return; }
     setStatus("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -171,14 +173,15 @@ function Contact() {
         <p className="lead">Whether you're ready to book your first session or simply have a question, I'm here to listen. There's no pressure — just a warm invitation to connect.</p>
         <form onSubmit={submit}>
           <input type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" style={{ display: "none" }} />
-          <label>Full Name <b>*</b><input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
-          <label>Email <b>*</b><input required type="email" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
-          <label>Phone<input type="tel" placeholder="07700 900000" value={f.phone} onChange={set("phone")} /></label>
-          <label>How did you hear about us? <span className="opt">(optional)</span><select value={f.heard} onChange={set("heard")}><option value="">Select an option</option>
+          <label><span className="lbl">Full Name <b>*</b></span><input required placeholder="Your name" value={f.name} onChange={set("name")} /></label>
+          <label><span className="lbl">Email <b>*</b></span><input required type="email" inputMode="email" autoComplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Please enter a valid email address, e.g. name@example.com" placeholder="you@email.com" value={f.email} onChange={set("email")} /></label>
+          <label><span className="lbl">Phone</span><input type="tel" placeholder="07700 900000" value={f.phone} onChange={set("phone")} /></label>
+          <label><span className="lbl">How did you hear about us? <span className="opt">(optional)</span></span><select value={f.heard} onChange={set("heard")}><option value="">Select an option</option>
             <option>Print advertiser</option><option>Word of mouth</option><option>Google search</option><option>Other</option></select></label>
-          <label>Your Message <b>*</b></b><textarea required rows="5" placeholder="Tell me a little about what you're looking for, or simply say hello..." value={f.message} onChange={set("message")} /></label>
+          <label><span className="lbl">Your Message <b>*</b></span><textarea required rows="5" placeholder="Tell me a little about what you're looking for, or simply say hello..." value={f.message} onChange={set("message")} /></label>
           <button className="btn btn-solid" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send Message"} <Icons.ArrowRight size={18} /></button>
-          {status === "sent" && <p className="msg ok" role="status">Thank you — your message has been sent. I'll reply within 48 hours.</p>}
+          {status === "sent" && <p className="msg ok" role="status">Thank you — your message has been sent. I'll reply within 24 hours.</p>}
+          {status === "bademail" && <p className="msg bad" role="alert">Please enter a valid email address, for example name@example.com.</p>}
           {status === "error" && <p className="msg bad" role="alert">Sorry, that didn't send. Please try again, or email {contact.email} directly.</p>}
           <p className="note">All inquiries are completely confidential.</p>
         </form></Reveal>
@@ -186,9 +189,10 @@ function Contact() {
         <div className="panel"><h3 className="serif">Contact Information</h3>
           {[["Mail", "Email", [contact.email]], ["Phone", "Phone", [contact.phone]], ["MapPin", "Location", ["Manchester", "In-person sessions"]],
             ["Video", "Online", ["Zoom Sessions", "Online therapy"]], ["Clock", "Hours", ["Flexible hours, afternoon and evening after work availability, please be in touch for more information"]]].map(([i, l, v]) => (
-            <div className="info" key={l}><span className="gold"><Icon name={i} /></span><div><small>{l.toUpperCase()}</small>{v.map((x) => <p key={x}>{x}</p>)}</div></div>))}</div>
+            <div className="info" key={l}><span className="gold"><Icon name={i} /></span><div><small>{l.toUpperCase()}</small>{v.map((x) => <p key={x}>{x}</p>)}</div></div>))}
+          <div className="info"><span className="gold"><Icons.Linkedin size={22} strokeWidth={1.5} /></span><div><small>LINKEDIN</small><p><a className="link-inline" href={contact.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p></div></div></div>
         <div className="panel outline"><h3 className="serif">What Happens Next?</h3>
-          <ol><li><b>1.</b> I'll respond to your message within 48 hours.</li><li><b>2.</b> We'll schedule a brief, free phone consultation.</li><li><b>3.</b> Together, we'll determine the best path forward for you.</li></ol></div>
+          <ol><li><b>1.</b> I'll respond to your message within 24 hours.</li><li><b>2.</b> We'll schedule a brief, free phone consultation.</li><li><b>3.</b> Together, we'll determine the best path forward for you.</li></ol></div>
       </Reveal>
     </div></section>
   );
