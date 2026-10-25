@@ -3,6 +3,7 @@ import { Link, NavLink, Routes, Route, useLocation } from "react-router-dom";
 import { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin } from "lucide-react";
 const Icons = { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin };
 import { img, contact, brand, bacpBadge, principles, services, badges, approach, creds, values, story } from "./content.js";
+import { Analytics } from "@vercel/analytics/react";
 
 const Icon = ({ name, size = 22 }) => { const I = Icons[name]; return I ? <I size={size} strokeWidth={1.5} /> : null; };
 
@@ -238,5 +239,5 @@ export default function App() {
   return (<><Header /><main><Routes>
     <Route path="/" element={<Home />} /><Route path="/services" element={<Services />} />
     <Route path="/about" element={<About />} /><Route path="/contact" element={<Contact />} /><Route path="/privacy" element={<Privacy />} />
-    <Route path="*" element={<Home />} /></Routes></main><Footer /></>);
+    <Route path="*" element={<Home />} /></Routes></main><Footer /><Analytics /></>);
 }
