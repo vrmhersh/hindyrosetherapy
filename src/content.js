@@ -22,6 +22,8 @@ export const img = {
 const brands = {
   hindy: {
     name: "Hindy Rose", first: "Hindy",
+    // Logo files live in public/hindy (same layout as public/helen).
+    logoMark: "/hindy/logo-mark.webp", logo: "/hindy/logo.webp",
     email: "hindyrosetherapy@gmail.com",
     // TODO: replace with the real LinkedIn profile URL
     linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-PROFILE",
@@ -30,7 +32,6 @@ const brands = {
   helen: {
     name: "Helen Rose", first: "Helen",
     // Logo files live in public/helen. logoMark = the round "HR" roundel (header), logo = the full logo (footer).
-    // The Hindy Rose brand has no logo files, so it keeps showing its name as text.
     logoMark: "/helen/logo-mark.webp", logo: "/helen/logo.webp",
     // TODO: confirm this email address exists
     email: "helenrosetherapy@gmail.com",
