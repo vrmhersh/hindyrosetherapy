@@ -29,6 +29,9 @@ const brands = {
   },
   helen: {
     name: "Helen Rose", first: "Helen",
+    // Logo files live in public/helen. logoMark = the round "HR" roundel (header), logo = the full logo (footer).
+    // The Hindy Rose brand has no logo files, so it keeps showing its name as text.
+    logoMark: "/helen/logo-mark.webp", logo: "/helen/logo.webp",
     // TODO: confirm this email address exists
     email: "helenrosetherapy@gmail.com",
     // TODO: replace with the real LinkedIn profile URL

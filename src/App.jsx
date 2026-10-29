@@ -40,7 +40,7 @@ function Header() {
   return (
     <header className={`header ${scrolled || open ? "solid" : ""}`}>
       <div className="bar">
-        <Link to="/" className="logo">{brand.name}</Link>
+        <Link to="/" className="logo">{brand.logoMark && <img className="logo-mark" src={brand.logoMark} alt="" width="44" height="44" />}<span>{brand.name}</span></Link>
         <nav className={`nav ${open ? "open" : ""}`}>
           {links.map(([to, t]) => <NavLink key={to} to={to} end className="navlink">{t}</NavLink>)}
           <Link to="/contact" className="btn btn-solid btn-sm">Book a Consultation</Link>
@@ -54,7 +54,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="footer"><div className="wrap foot-grid">
-      <div><h3 className="serif">{brand.name}</h3><p>Therapy that supports real change. Person Centred Therapy, CBT and EFT — in person in Manchester and online via Zoom.</p><BacpBadge /></div>
+      <div>{brand.logo ? <img className="foot-logo" src={brand.logo} alt={`${brand.name} Therapy`} width="168" height="168" loading="lazy" /> : <h3 className="serif">{brand.name}</h3>}<p>Therapy that supports real change. Person Centred Therapy, CBT and EFT — in person in Manchester and online via Zoom.</p><BacpBadge /></div>
       <div><h4>Navigate</h4>{[["/", "Home"], ["/services", "Services"], ["/about", "About Me"], ["/contact", "Contact"]].map(([to, t]) => <Link key={to} to={to}>{t}</Link>)}</div>
       <div><h4>Get in Touch</h4><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`tel:${contact.tel}`}>{contact.phone}</a><a className="li" href={contact.linkedin} target="_blank" rel="noopener noreferrer"><Icons.Linkedin size={18} /> LinkedIn</a></div>
       <div className="legal"><span>© {new Date().getFullYear()} {brand.name} Therapy. All rights reserved.</span><Link to="/privacy">Privacy Notice</Link></div>
