@@ -88,3 +88,10 @@ export const story = [
   "Alongside my training, I've built extensive experience in grief counselling — walking alongside people through loss and bereavement — and spent hundreds of hours on a volunteer basis on the Manchester helpline for mental health crises, offering immediate, compassionate support when it's needed most.",
   "Today, from my practice in Manchester and online via Zoom, I offer a warm, flexible and personalised approach — helping you feel more like yourself again.",
 ];
+// "What I can help with". Each group has an icon (a lucide icon name, listed in Icons in App.jsx). Each item is [label, icon name].
+export const issues = [
+  { icon: "Wind", title: "Anxiety & Worry", items: [["Anxiety / Stress", "Waves"], ["Panic attacks", "Zap"], ["Social anxiety", "Users"], ["Fear", "ShieldAlert"], ["Intrusive thoughts", "Repeat"]] },
+  { icon: "CloudSun", title: "Mood & Energy", items: [["Low mood / Sadness", "CloudRain"], ["Overwhelm", "Layers"], ["Fatigue", "BatteryLow"], ["Loneliness", "User"]] },
+  { icon: "Sprout", title: "Confidence & Growth", items: [["Low confidence", "Sparkles"], ["Perfectionism", "Target"], ["Stuckness", "Anchor"], ["Personal growth", "TrendingUp"]] },
+  { icon: "HeartHandshake", title: "Relationships & Life Experiences", items: [["Relationship difficulties", "Link2"], ["Loss / Bereavement", "Flower2"], ["Abuse / Trauma", "LifeBuoy"]] },
+];

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Routes, Route, useLocation } from "react-router-dom";
-import { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin } from "lucide-react";
-const Icons = { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin };
-import { img, contact, brand, bacpBadge, principles, services, badges, approach, creds, values, story } from "./content.js";
+import { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin, Wind, CloudSun, Sprout, Waves, Zap, Users, ShieldAlert, Repeat, CloudRain, Layers, BatteryLow, User, Sparkles, Target, Anchor, TrendingUp, Link2, Flower2, LifeBuoy } from "lucide-react";
+const Icons = { Heart, Brain, Leaf, Award, BookOpen, HeartHandshake, PhoneCall, Shield, Mail, Phone, MapPin, Video, Clock, ArrowRight, Menu, X, Linkedin, Wind, CloudSun, Sprout, Waves, Zap, Users, ShieldAlert, Repeat, CloudRain, Layers, BatteryLow, User, Sparkles, Target, Anchor, TrendingUp, Link2, Flower2, LifeBuoy };
+import { img, contact, brand, bacpBadge, principles, services, badges, approach, creds, values, story, issues } from "./content.js";
 import { Analytics } from "@vercel/analytics/react";
 
 const Icon = ({ name, size = 22 }) => { const I = Icons[name]; return I ? <I size={size} strokeWidth={1.5} /> : null; };
@@ -66,6 +66,17 @@ const Badges = () => (
   <section className="badges"><div className="wrap badge-row">{badges.map(([i, t]) => <span key={t}><Icon name={i} />{t}</span>)}</div></section>
 );
 
+const Issues = ({ eyebrow = "What I Can Help With", title, text }) => (
+  <section className="section alt"><div className="wrap">
+    <Reveal className="issues-head"><p className="eyebrow">{eyebrow}</p><h2 className="serif">{title}</h2><p className="lead">{text}</p></Reveal>
+    <div className="issues">{issues.map((g, i) => (
+      <Reveal key={g.title} delay={i * 80} className="issue"><span className="issue-ic"><Icon name={g.icon} size={26} /></span>
+        <h3 className="serif">{g.title}</h3>
+        <ul className="tags">{g.items.map(([t, ic]) => <li key={t}><Icon name={ic} size={16} />{t}</li>)}</ul></Reveal>))}</div>
+    <p className="issues-note">Don't see what you're looking for? This list isn't exhaustive. <Link to="/contact" className="link-inline">Get in touch</Link> and we can talk it through.</p>
+  </div></section>
+);
+
 const CTA = ({ title, text, label, to = "/contact", note }) => (
   <section className="section center"><Reveal className="wrap narrow">
     <h2 className="serif">{title}</h2><p className="lead">{text}</p>
@@ -83,6 +94,7 @@ function Home() {
         <div className="btn-row"><Btn to="/contact">Start a Conversation</Btn><Btn to="/services" variant="ghost">Explore Services</Btn></div>
       </div></section>
     <Badges />
+    <Issues title="Whatever brings you here, you're welcome as you are" text="People come to therapy for all kinds of reasons, some pressing and some quietly persistent. You don't need to be in crisis to deserve support." />
     <section className="section"><div className="wrap">
       <Reveal><p className="eyebrow">My Approach</p><h2 className="serif">Using scientifically proven & alternative methods</h2>
         <p className="lead">Support for anxiety, depression, self-esteem, grief, stress and more.</p></Reveal>
@@ -114,6 +126,7 @@ function Services() {
   return (<>
     <section className="section page-top"><Reveal className="wrap"><p className="eyebrow">Services</p><h1 className="serif">Pathways to healing, tailored to you</h1>
       <p className="lead">Each service is designed to meet you exactly where you are. Whether you need a listening ear, practical tools for change, or the deeper release of EFT — there's a path forward.</p></Reveal></section>
+    <Issues eyebrow="Areas of Support" title="What we can work on together" text="These are some of the things people most often bring to therapy. If yours isn't here, that doesn't mean it isn't welcome." />
     {services.map((s, i) => (
       <section key={s.title} className={`section ${i === 1 ? "alt" : ""}`}><div className={`wrap split ${i % 2 ? "flip" : ""}`}>
         <Reveal><img className="big" src={s.img} alt={s.title} loading="lazy" /></Reveal>
